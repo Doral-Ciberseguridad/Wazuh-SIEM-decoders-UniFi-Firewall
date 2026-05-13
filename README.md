@@ -1,7 +1,7 @@
 # Decoders-UniFi-Wazuh
 
-El en archivo local_decoder.xml de este repositorio, se encuentra el código necesario 
-para crear los decodificadores de UniFi en Wazuh para poder interpretar eventos con formato CEF del firewall.
+El archivo local_decoder.xml de este repositorio incluye los decodificadores necesarios para que Wazuh reconozca y procese los eventos CEF enviados por el firewall UniFi.
+
 
 Debemos de guardar el código en /var/ossec/etc/decoders/local_decoder.xml
 
