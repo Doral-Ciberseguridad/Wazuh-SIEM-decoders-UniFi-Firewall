@@ -1,0 +1,209 @@
+<!-- UniFi Network CEF custom decoders -->
+
+<decoder name="unifi-cef">
+  <program_name>CEF</program_name>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">^\s*0\|Ubiquiti\|UniFi Network\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|</regex>
+  <order>unifi.version,unifi.event_id,unifi.event_name,unifi.severity</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bproto=([^\s]+)</regex>
+  <order>protocol</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bsrc=([0-9a-fA-F:.]+)</regex>
+  <order>srcip</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bdst=([0-9a-fA-F:.]+)</regex>
+  <order>dstip</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bspt=([0-9]+)</regex>
+  <order>srcport</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bdpt=([0-9]+)</regex>
+  <order>dstport</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bact=([^\s]+)</regex>
+  <order>action</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bapp=(.*?)(?=\s+UNIFIcategory=|\s+UNIFIhost=|\s+UNIFI|$)</regex>
+  <order>unifi.app</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIcategory=(.*?)(?=\s+UNIFIhost=|\s+UNIFI|$)</regex>
+  <order>unifi.category</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIhost=(.*?)(?=\s+UNIFIrisk=|\s+UNIFIpolicyName=|\s+UNIFI|$)</regex>
+  <order>unifi.host</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIrisk=([^\s]+)</regex>
+  <order>unifi.risk</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIpolicyName=(.*?)(?=\s+UNIFIpolicyType=|\s+UNIFI|$)</regex>
+  <order>unifi.policy_name</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIpolicyType=(.*?)(?=\s+UNIFIdirection=|\s+UNIFI|$)</regex>
+  <order>unifi.policy_type</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIdirection=([^\s]+)</regex>
+  <order>unifi.direction</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bdeviceInboundInterface=(.*?)(?=\s+deviceOutboundInterface=|\s+UNIFI|$)</regex>
+  <order>unifi.inbound_interface</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bdeviceOutboundInterface=(.*?)(?=\s+UNIFIdeviceMac=|\s+UNIFI|$)</regex>
+  <order>unifi.outbound_interface</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIdeviceMac=([0-9a-fA-F:]+)</regex>
+  <order>unifi.device_mac</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIdeviceName=(.*?)(?=\s+UNIFIdeviceModel=|\s+UNIFIdeviceIp=|\s+UNIFI|$)</regex>
+  <order>unifi.device_name</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIdeviceModel=(.*?)(?=\s+UNIFIdeviceIp=|\s+UNIFIdeviceVersion=|\s+UNIFI|$)</regex>
+  <order>unifi.device_model</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIdeviceIp=([0-9a-fA-F:.]+)</regex>
+  <order>unifi.device_ip</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIdeviceVersion=([^\s]+)</regex>
+  <order>unifi.device_version</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIsrcClientAlias=(.*?)(?=\s+UNIFIsrcClientHostname=|\s+UNIFI|$)</regex>
+  <order>unifi.src_client_alias</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIsrcClientHostname=(.*?)(?=\s+UNIFIsrcClientMac=|\s+UNIFI|$)</regex>
+  <order>unifi.src_client_hostname</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIsrcClientMac=([0-9a-fA-F:]+)</regex>
+  <order>unifi.src_client_mac</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIsrcClientModel=(.*?)(?=\s+UNIFIsrcZone=|\s+UNIFI|$)</regex>
+  <order>unifi.src_client_model</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIsrcZone=(.*?)(?=\s+UNIFIdstRegion=|\s+UNIFIdstZone=|\s+UNIFI|$)</regex>
+  <order>unifi.src_zone</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIdstRegion=([^\s]+)</regex>
+  <order>unifi.dst_region</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIdstZone=(.*?)(?=\s+UNIFItotalBytes=|\s+UNIFI|$)</regex>
+  <order>unifi.dst_zone</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFItotalBytes=([0-9]+)</regex>
+  <order>unifi.total_bytes</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFItotalPackets=([0-9]+)</regex>
+  <order>unifi.total_packets</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIipsSignature=(.*?)(?=\s+UNIFIipsSignatureId=|\s+UNIFIutcTime=|\s+msg=|$)</regex>
+  <order>unifi.ips_signature</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIipsSignatureId=([0-9]+)</regex>
+  <order>unifi.ips_signature_id</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bUNIFIutcTime=([^\s]+)</regex>
+  <order>unifi.utc_time</order>
+</decoder>
+
+<decoder name="unifi-cef">
+  <parent>unifi-cef</parent>
+  <regex type="pcre2">\bmsg=(.*)$</regex>
+  <order>unifi.msg</order>
+</decoder>
